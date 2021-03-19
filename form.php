@@ -2,6 +2,7 @@
 require_once('dbc.php');
 $roomData = Animal\Dbc\getRoomList();
 $familyData = Animal\Dbc\getFamilyName();
+$especeData = Animal\Dbc\getEspeceName();
 
 ?>
 
@@ -20,11 +21,16 @@ $familyData = Animal\Dbc\getFamilyName();
 		<input type="text" name="nom">
 
 		<p>Nom commun: </p>
-		<input type="text" name="nom commun">
+		<select name="nom commun" id="nom_commun">
+			<option></option>	
+			<?php foreach($especeData as $column): ?>
+				<option value="<?php echo $column['ID_E'] ?>"><?php echo $column['NOM_COMMUN'] ?></option>	
+			<?php endforeach; ?>
+		</select>
 
 		<p>Sexe: </p>
-		<label><input type="radio" name="radio_age" value="F">Femelle</label>
-		<label><input type="radio" name="radio_age" value="M">Mâle</label>
+		<label><input type="radio" name="radio_sexe" value="F">Femelle</label>
+		<label><input type="radio" name="radio_sexe" value="M">Mâle</label>
 		
 
 		<p>Age: </p>
@@ -37,7 +43,7 @@ $familyData = Animal\Dbc\getFamilyName();
 		<input type="date" name="date_deces">
 
 		<p>Salle: </p>
-		<select name="Nom de salle" id="nom_de_salle">
+		<select name="nom de salle" id="nom_de_salle">
 			<option></option>	
 			<?php foreach($roomData as $column): ?>
 				<option value="<?php echo $column['ID_L'] ?>"><?php echo $column['NOM_SALLE'] ?></option>	
@@ -45,15 +51,14 @@ $familyData = Animal\Dbc\getFamilyName();
 		</select>
 
 		<p>Nom de famille: </p>
-		<select name="Nom de famille" id="nom_de_famille">
+		<select name="nom de famille" id="nom_de_famille">
 			<option></option>
 			<?php foreach($familyData as $column): ?>
 				<option value="<?php echo $column['ID_F'] ?>"><?php echo $column['NOM_FAMILLE'] ?></option>
 			<?php endforeach; ?>
 		</select>
 
-		<p>Nom scientifique: </p>
-		<input type="text" name="nom_scientifique">
+		<br>
 		<br>
 		<input type="submit" value="Envoyer">
 		

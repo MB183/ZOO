@@ -31,7 +31,8 @@ function getAllAnimal(){
 		inner join espece as e
 		on a.ID_ESPECE =  e.ID_E
 		inner join lieux as l
-		on a.ID_LIEU = l.ID_L";
+		on a.ID_LIEU = l.ID_L
+		where SUPPRIMER = 0";
 	$stmt = $dbh->query($sql);
 	$result = $stmt ->fetchAll(\PDO::FETCH_ASSOC);
 	//var_dump($result);
@@ -85,6 +86,17 @@ function getAnimal($id){
 		$stmt = $dbh->query($sql);
 		$result = $stmt ->fetchAll(\PDO::FETCH_ASSOC);
 	
+		return $result;
+		$dbh = null;
+	}
+
+	function getEspeceName(){
+		$dbh = dbConnect();
+
+		$sql = "SELECT * from espece";
+		$stmt = $dbh->query($sql);
+		$result = $stmt ->fetchAll(\PDO::FETCH_ASSOC);
+
 		return $result;
 		$dbh = null;
 	}

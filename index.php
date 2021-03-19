@@ -16,6 +16,7 @@ $animalData = Animal\Dbc\getAllAnimal();
 </head>
 <body>
 	<h2>Liste des animaux</h2>
+	<p><a href="form.php">Nouvel animal</a></p>
 	<table>
 		<tr>
 			<th>NOM</th>
