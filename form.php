@@ -1,8 +1,10 @@
 <?php
 require_once('dbc.php');
-$roomData = Animal\Dbc\getRoomList();
-$familyData = Animal\Dbc\getFamilyName();
-$especeData = Animal\Dbc\getEspeceName();
+
+$dbc = new Dbc();
+$roomData = $dbc->getRoomList();
+$familyData = $dbc->getFamilyName();
+$especeData = $dbc->getEspeceName();
 
 ?>
 
@@ -63,6 +65,7 @@ $especeData = Animal\Dbc\getEspeceName();
 		<input type="submit" value="Envoyer">
 		
 	</form>
+	<p><a href="index.php">Revenir</a></p>
 
 </body>
 </html>

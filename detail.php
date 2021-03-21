@@ -1,12 +1,9 @@
 <?php 
 
-require_once('dbc.php');
+require_once('animal.php');
 
-//$id = $_GET['id'];
-//echo $id;
-use Animal\Dbc;
-
-$result = Dbc\getAnimal($_GET['id']);
+$animal = new Animal();
+$result = $animal->getAnimal($_GET['id']);
 
 /*
 function dbConnect(){
@@ -54,5 +51,6 @@ function dbConnect(){
 	<p>Salle: <?php echo $result['NOM_SALLE'] ?></p>
 	<p>Nom de famille: <?php echo $result['NOM_FAMILLE'] ?></p>
 	<p>Nom scientifique: <?php echo $result['NOM_SCIENTIFIQUE'] ?></p>
+	<p><a href="index.php">Revenir</a></p>
 </body>
 </html>

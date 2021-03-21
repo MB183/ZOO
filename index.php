@@ -1,8 +1,17 @@
 <?php 
 
-require_once('dbc.php');
+require_once('animal.php');
+ini_set('display_errors', "On");
+
+$animal = new Animal();
+//var_dump($dbc);
+
 //Afficher le data que j'ai récupéré
-$animalData = Animal\Dbc\getAllAnimal();
+$animalData = $animal->getAllAnimal();
+
+function h($s){
+	return htmlspecialchars($s, ENT_QUOTES, "UTF-8");
+}
 
 ?>
 
@@ -28,13 +37,15 @@ $animalData = Animal\Dbc\getAllAnimal();
 		</tr>
 		<?php foreach ($animalData as $column): ?> 
 		<tr>
-			<td><?php echo $column['NOM'] ?></td>
-			<td><?php echo $column['NOM_COMMUN'] ?></td>
-			<td><?php echo $column['Sexe'] ?></td>
-			<td><?php echo $column['AGE'] ?></td>
-			<td><?php echo $column['DATE_DE_DECES'] ?></td>
-			<td><?php echo $column['NOM_SALLE'] ?></td>
+			<td><?php echo h($column['NOM']) ?></td>
+			<td><?php echo h($column['NOM_COMMUN']) ?></td>
+			<td><?php echo h($column['Sexe']) ?></td>
+			<td><?php echo h($column['AGE']) ?></td>
+			<td><?php echo h($column['DATE_DE_DECES']) ?></td>
+			<td><?php echo h($column['NOM_SALLE']) ?></td>
 			<td><a href="detail.php?id=<?php echo $column['ID'] ?>">Détail</a></td>
+			<td><a href="update_form.php?id=<?php echo $column['ID'] ?>">Éditer</a></td>
+			<td><a href="animal_delete.php?id=<?php echo $column['ID'] ?>">Effacer</a></td>
 		</tr>
 		<?php endforeach; ?>
 	</table>
