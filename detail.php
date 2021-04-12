@@ -51,6 +51,6 @@ function dbConnect(){
 	<p>Salle: <?php echo $result['NOM_SALLE'] ?></p>
 	<p>Nom de famille: <?php echo $result['NOM_FAMILLE'] ?></p>
 	<p>Nom scientifique: <?php echo $result['NOM_SCIENTIFIQUE'] ?></p>
-	<p><a href="index.php">Revenir</a></p>
+	<p><a href="animal_list.php">Revenir</a></p>
 </body>
 </html>

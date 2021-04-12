@@ -71,7 +71,7 @@ $binominal = $result['NOM_SCIENTIFIQUE'];
 		<input type="submit" value="Envoyer">
 		
 	</form>
-	<p><a href="index.php">Revenir</a></p>
+	<p><a href="animal_list.php">Revenir</a></p>
 
 </body>
 </html>

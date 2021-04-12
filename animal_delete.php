@@ -6,4 +6,4 @@ $animal = new Animal();
 $result = $animal->delete($_GET['id']);
 ?>
 
-<p><a href="index.php">Revenir</a></p>
+<p><a href="animal_list.php">Revenir</a></p>

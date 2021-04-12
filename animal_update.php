@@ -22,4 +22,4 @@ $animal->animalUpdate($animals);
 
 ?>
 
-<p><a href="index.php">Revenir</a></p>
+<p><a href="animal_list.php">Revenir</a></p>
