@@ -29,7 +29,7 @@ if(count($err) > 0){
 $result = UserLogic::login($email, $password);
 //Qunad c'est raté login
 if(!$result){
-	header('Location: login.php');
+	header('Location: login_form.php');
 	return;
 }
 
@@ -42,7 +42,7 @@ if(!$result){
 <head>
 	<meta charset="utf-8">
 <!--	<link rel="stylesheet" type="text/css" href="styles.css"> -->
-// ログイン完了
+ <!--ログイン完了-->
 	<title>Connexion terminée</title>
 
 </head>
@@ -50,7 +50,7 @@ if(!$result){
 	<h2>Connexion terminée</h2>
 	<p>Vous êtes connecté.</p>
 
-	<a href="mypage.php">Aller vers ma page</a>
+	<a href="./mypage.php">Aller vers ma page</a>
 
 </body>
 </html>

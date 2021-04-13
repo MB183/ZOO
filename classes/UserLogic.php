@@ -66,7 +66,7 @@ class UserLogic{
 			return $result;
 	}
 
-		/**
+	/**
 	*recupérer la personne par email
 	*@param string $email
 	*@return array bool $user|false
@@ -91,6 +91,30 @@ class UserLogic{
 			return false;
 		}
 	}
+
+	/**
+	*login check
+	*@param void
+	*@return bool $result
+	*/
+	public static function checkLogin(){
+		$result = false;
+		// s'il n'y a pas user dans la session = false
+		if (isset($_SESSION['login_user']) && $_SESSION['login_user']['ID'] > 0) {
+			return $result = true;
+		}
+		return $result;
+	}
+
+	/**
+	*traitement logout
+	*/
+	public static function logout(){
+		$_SESSION = array();
+		session_destroy();
+	}
+
+
 
 
 }

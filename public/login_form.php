@@ -1,7 +1,14 @@
 <?php
 require_once('../dbc_employee.php');
+require_once('../classes/UserLogic.php');
 
 session_start();
+
+$result = UserLogic::checkLogin();
+if ($result) {
+	header('Location: mypage.php');
+	return;
+}
 
 $err = $_SESSION;
 //$professionData = $pdo->getProfessionList();
