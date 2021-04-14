@@ -3,6 +3,7 @@ session_start();
 require_once('../dbc_employee.php');
 require_once('../functions.php');
 require_once('../classes/UserLogic.php');
+require_once('../employee.php');
 
 $result = UserLogic::checkLogin();
 if ($result) {
@@ -12,6 +13,10 @@ if ($result) {
 
 $login_err = isset($_SESSION['login_err']) ? $_SESSION['login_err'] : null;
 unset($_SESSION['login_err']);
+
+$employee = new Employee();
+$professionData = $employee->getProfessionList();
+//var_dump($professionData);
 ?>
 
 <!DOCTYPE html>
@@ -69,7 +74,9 @@ unset($_SESSION['login_err']);
 		<select name="profession" id="profession">
 			<option></option>
 			<?php foreach($professionData as $column): ?>
-			<option value="<?php echo $column['ID'] ?>"><?php echo $column['NOM'] ?></option>
+			<option value="<?php echo $column['ID_P'] ?>">
+				<?php echo $column['NOM_POSTE'] ?>
+			</option>
 			<?php endforeach; ?>
 		</select>
 
