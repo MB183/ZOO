@@ -1,7 +1,22 @@
 <?php 
+session_start();
+require_once('classes/UserLogic.php');
+require_once('functions.php');
 
 require_once('animal.php');
 ini_set('display_errors', "On");
+
+//juger si on est login sinon renvoyer vers créer un compte
+$result = UserLogic::checkLogin();
+
+if (!$result) {
+	$_SESSION['login_err'] = "Veuillez enregistrer l'utilisateur et vous connecter.";
+	header('Location: public/signup_form.php');
+	return;
+}
+
+	$login_user = $_SESSION['login_user'];
+
 
 $animal = new Animal();
 //var_dump($dbc);
@@ -9,9 +24,9 @@ $animal = new Animal();
 //Afficher le data que j'ai récupéré
 $animalData = $animal->getAllAnimal();
 
-function h($s){
-	return htmlspecialchars($s, ENT_QUOTES, "UTF-8");
-}
+// function h($s){
+// 	return htmlspecialchars($s, ENT_QUOTES, "UTF-8");
+// }
 
 ?>
 
@@ -25,6 +40,7 @@ function h($s){
 </head>
 <body>
 	<h2>Liste des animaux</h2>
+	<a href="index.php">Revenir</a>
 	<p><a href="form.php">Nouvel animal</a></p>
 	<table>
 		<tr>

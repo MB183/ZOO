@@ -1,6 +1,6 @@
 <?php 
 
-require_once ('../dbc_employee.php');
+require_once ("C:/wamp64/www/ZOO/dbc_employee.php");
 
 class UserLogic{
 	/**
@@ -24,7 +24,8 @@ class UserLogic{
 		$arr[] = $userData['profession'];
 
 		try{
-			$stmt = connect()->prepare($sql);
+			$dbc_e = new Dbc_employee();
+			$stmt = $dbc_e->connect()->prepare($sql);
 			$result = $stmt->execute($arr);
 			return $result;
 		}	catch (\Exception $e){
@@ -75,14 +76,15 @@ class UserLogic{
 		// Préparation sql
 		// Execute sql
 		// Rendre le résultat de sql
-		$sql = "SELECT * FROM employes WHERE EMAIL = ?";
+		$sql ="SELECT * FROM employes INNER JOIN postes ON employes.ID_POSTE = postes.ID_P WHERE employes.EMAIL = ?";
 
 		// entrer email dans un array
 		$arr = [];
 		$arr[] = $email;
 		
 		try{
-			$stmt = connect()->prepare($sql);
+			$dbc_e = new Dbc_employee();
+			$stmt = $dbc_e->connect()->prepare($sql);
 			$stmt->execute($arr);
 			// Rendre le résultat de sql
 			$user = $stmt->fetch();

@@ -1,5 +1,20 @@
 <?php
+session_start();
+require_once('classes/UserLogic.php');
+require_once('functions.php');
+
 require_once('dbc.php');
+
+//juger si on est login sinon renvoyer vers créer un compte
+$result = UserLogic::checkLogin();
+
+if (!$result) {
+	$_SESSION['login_err'] = "Veuillez enregistrer l'utilisateur et vous connecter.";
+	header('Location: public/signup_form.php');
+	return;
+}
+
+	$login_user = $_SESSION['login_user'];
 
 $dbc = new Dbc();
 $roomData = $dbc->getRoomList();
@@ -7,7 +22,6 @@ $familyData = $dbc->getFamilyName();
 $especeData = $dbc->getEspeceName();
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="fr">

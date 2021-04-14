@@ -51,35 +51,9 @@ if(!$result){
 	<p>Vous êtes connecté.</p>
 
 	<a href="./mypage.php">Aller vers ma page</a>
-
+	<a href="../index.php">Aller vers l'accueil</a>
 </body>
 </html>
 
-<!--
-///////////////////////////////////////////////
-// 自分でつくったぶぶん　あとで変える
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="home.css">
-	<title>ZOO</title>
-</head>
-<body>
-	<h1>HOME</h1>
-
-	<div>icon d'employe</div>
-	<h2>Bienvenu sur le logiciel de Zoo</h2><br>
-
-	<div>side bar</div>
-	<ul>
-		<a href="animal_list.php"><li>Animaux</li></a>
-		<a href="employee_list.php"><li>Employés</li></a>
-		<a href="treatment_list.php"><li>Soins</li></a>
-	</ul>
-
-</body>
-</html>
--->
 

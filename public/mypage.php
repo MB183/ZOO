@@ -13,6 +13,7 @@ if (!$result) {
 }
 
 	$login_user = $_SESSION['login_user'];
+
 ?>
 
 <!DOCTYPE html>
@@ -23,9 +24,14 @@ if (!$result) {
 	<title>Ma page</title>
 </head>
 <body>
-	<h2>Ma page</h2>
-	<p>Utilisateur de connexion:<?php echo h($login_user['NOM']) ?></p>
+	<h3><?php echo h($login_user['PRENOM'].' '.$login_user['NOM']) ?></h3>
+	<p>Nom:<?php echo h($login_user['NOM']) ?></p>
+	<p>Prénom:<?php echo h($login_user['PRENOM']) ?></p>
+	<p>Date de naissance:<?php echo h($login_user['DATE_DE_NAISSANCE']) ?></p>
+	<p>Genre:<?php echo h($login_user['SEXE']) ?></p>
 	<p>Email:<?php echo h($login_user['EMAIL']) ?></p>
+	<p>Poste:<?php echo h($login_user['NOM_POSTE']) ?></p>
+	<a href="../index.php">Revenir</a>
 	<form action="logout.php" method="POST">
 		<input type="submit" name="logout" value="Se déconnecter">
 	</form>
